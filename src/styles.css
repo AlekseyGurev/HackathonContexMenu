@@ -40,3 +40,83 @@ body {
 .menu .menu-item:hover {
     background: #343434;
 }
+  
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color:rgba(242, 242, 242, 0.8);
+}
+
+.modal--hidden {
+    visibility: hidden;
+  }
+  
+.modal__container {
+    position: relative;
+    width: 717px;
+    min-height: 350px;
+    margin: auto;
+    padding: 64px 70px;
+    background-color: #ffffff;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 30px;
+    box-shadow: 0 25px 50px 0 rgba(0, 0, 0, 0.15);
+    text-align: center;
+
+}
+  
+.modal__title {
+    margin: 0;
+    margin-bottom: 65px;
+    padding: 0;
+    font-size: 35px;
+    line-height: 36px;
+    font-weight: 700;
+    color: #ece6e6;
+}
+
+.modal__close-button {
+    position: absolute;
+    width: 52px;
+    height: 52px;
+    top: 55px;
+    left:613px;
+    background-color: #f2f2f2;
+    background-image: url(./images/modale-close.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    border-radius: 50px;
+}
+
+.modal__close-button:hover {
+    cursor: pointer;
+    background-color: #ece6e6;
+}
+
+.modal__close-button:active {
+    background-color: #dacccc;
+}
+
+.modal__days {
+    font-size: 70px;
+    line-height: 36px;
+    font-weight: 700;
+    color: #ece6e6;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
