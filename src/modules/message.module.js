@@ -1,7 +1,11 @@
 import { Module } from '../core/module'
 import { BODY } from '../core/constants'
+import { random } from '../utils'
 
 export class MessageModule extends Module {
+
+    #messageContainer = document.createElement("div")
+    #messageText = document.createElement("p")
 
     #randomText() {
         const array = [
@@ -17,23 +21,26 @@ export class MessageModule extends Module {
 
     #hideMessage() {
         setTimeout(() => {
-            messageContainer.style.display = "none";
+            this.#messageContainer.style.display = "none"
+            this.#messageText.textContent = ''
         }, 5000);
-        messageContainer.addEventListener('click', () => {
-            messageContainer.style.display = "none"
+        this.#messageContainer.addEventListener('click', () => {
+            this.#messageContainer.style.display = "none"
+            this.#messageText.textContent = ''
         })
     }
 
-    trigger() {
-        const messageContainer = document.createElement("div")
-        messageContainer.className = "message-container"
+    trigger() {   
+        this.#messageContainer.className = "message-container"        
+        this.#messageText.className = "message-text"
+        this.#messageText.textContent = ''
+        this.#messageText.textContent = this.#randomText()
+        this.#messageContainer.style.top = `${random(100, 1000)}px`
+        this.#messageContainer.style.left = `${random(100, 1000)}px`
+        this.#messageContainer.append(this.#messageText)
+        this.#messageContainer.style.display = "block"
 
-        const messageText = document.createElement("p")
-        messageText.className = "message-text"
-        messageText.textContent = this.#randomText()
-        messageContainer.append(messageText)
-
-        BODY.append(messageContainer)
+        BODY.append(this.#messageContainer)
 
         this.#hideMessage()
     }

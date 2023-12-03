@@ -24,7 +24,7 @@ body {
 .menu {
   position: fixed;
   z-index: 1000;
-  width: 150px;
+  width: 220px;
   background: #1b1a1a;
   border-radius: 5px;
   display: none;
@@ -59,6 +59,8 @@ body {
   border: 1px solid #fff;
   color: black;
 }
+
+/* Timer and Count Click module */
 
 .container-count {
   max-width: 1000px;
@@ -109,8 +111,6 @@ input[type='submit'] {
 
 .message-container {
     position: absolute;
-    top: 40px;
-    left: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -143,6 +143,8 @@ input[type='submit'] {
 .message-container:hover .message-text {
     color: #1b1a1a;
 }
+
+/* BackgroundColorChanger module*/
 
 .hex-block {
   width: calc(var(--index-size) * 2.5);
