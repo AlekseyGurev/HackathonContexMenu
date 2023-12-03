@@ -53,6 +53,7 @@ export class TimerModule extends Module {
                     setTimeout(()=>{
                         timerValueBlock.remove()
                         spanTimerInDiv.textContent = 'Начинаем отсчет времени'
+                        container.remove()
                     },1000)                  
                 } else{                                       
                     spanTimerInDiv.textContent = timerValue
