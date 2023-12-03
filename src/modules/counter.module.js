@@ -1,11 +1,12 @@
 import {Module} from '../core/module'
+import {DOC, BODY} from '../core/constants'
 
 export class CounterModule extends Module {
 
 
     #renderCount(count,time,container){        
 
-        const spanCounter = document.createElement('span')
+        const spanCounter = DOC.createElement('span')
         spanCounter.className = 'counter'
         spanCounter.textContent = `Вы кликнули ${count} раз за ${time/1000} секунды`
         container.append(spanCounter)
@@ -17,31 +18,28 @@ export class CounterModule extends Module {
         let start = time/1000
         let count = 0
 
-        const container = document.createElement('div')
+        const container = DOC.createElement('div')
         container.classList.add('container-count')
-        const spanStart = document.createElement('span')
+        const spanStart = DOC.createElement('span')
         container.append(spanStart)
-        document.body.append(container)
+        BODY.append(container)
 
-        if(typeof time === 'number'){        
-
-            spanStart.textContent = start           
-
+        if(typeof time === 'number'){ 
+            spanStart.textContent = start
             const interval = setInterval(()=>{
                 if(start !== 0){     
                     start--
-                    spanStart.textContent = start                    
-
+                    spanStart.textContent = start
                 } else{
                     clearInterval(interval)                                                         
                 }               
             },1000)
             
-            const counterClick=()=>{
+            const counterClick =()=>{
                 count++
             }
 
-            document.addEventListener('click',counterClick)
+            BODY.addEventListener('click',counterClick)
 
             setTimeout(()=>{
                 document.removeEventListener('click',counterClick)
