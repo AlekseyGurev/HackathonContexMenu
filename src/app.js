@@ -27,14 +27,15 @@ DOC.addEventListener('contextmenu', (event) => {
 })
 
 //обрабатываем клик по меню, ищем интересующий нас модуль и запускаем его
-const handlerCurrentModule = (event) => {
+const handlerCurrentModule = (event) => {    
     const { target } = event
     const currentModuleName = target.dataset.type
     const currentModule = modulesArray.find((item) => {
         return item.type === currentModuleName
     })
-    currentModule.trigger()
+    currentModule.trigger()    
     menu.close()
+    event.stopPropagation()
 }
 
 menu.el.addEventListener('click', handlerCurrentModule)

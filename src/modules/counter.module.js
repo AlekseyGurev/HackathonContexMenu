@@ -5,7 +5,6 @@ export class CounterModule extends Module {
 
 
     #renderCount(count,time,container){        
-
         const spanCounter = DOC.createElement('span')
         spanCounter.className = 'counter'
         spanCounter.textContent = `Вы кликнули ${count} раз за ${time/1000} секунды`
@@ -13,6 +12,8 @@ export class CounterModule extends Module {
         setTimeout(() => { spanCounter.remove() }, 3000)
         
     }
+
+    
 
     trigger(time = 3000) {
         let start = time/1000
@@ -35,11 +36,12 @@ export class CounterModule extends Module {
                 }               
             },1000)
             
-            const counterClick =()=>{
+            function counterClick(){
                 count++
             }
 
             BODY.addEventListener('click',counterClick)
+
 
             setTimeout(()=>{
                 document.removeEventListener('click',counterClick)
