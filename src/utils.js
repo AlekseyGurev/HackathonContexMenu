@@ -13,3 +13,15 @@ export function getRandomColor() {
 export function getRandomItem(items) {
   return items[Math.floor(Math.random() * items.length)]
 }
+
+export function convertMsToDays(date) {
+  let updateDate = Math.round(date/((1000 * 60 * 60 * 24)))
+  return updateDate
+}
+
+export function getDayTitle(day) {
+    if (day === 0) return 'дней'
+    if (day === 1) return 'день'
+    if (day > 1 && day <= 4) return 'дня'
+    if (day >= 5) return 'дней'
+}
