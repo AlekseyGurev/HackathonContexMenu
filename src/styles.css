@@ -19,10 +19,6 @@ body {
   padding: 2rem;
   position: relative;
   overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
 }
 
 .menu {
@@ -107,6 +103,45 @@ input[type='submit'] {
   background: #fff;
   border: 1px solid #fff;
   color: black;
+}
+
+/* Message module */
+
+.message-container {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 250px;
+    min-height: 20px;
+    border-radius: 5px;
+    background-color: #1b1a1a;
+    cursor: default;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.message-container:hover {
+    outline: 1px solid #1b1a1a;
+    color: #1b1a1a;
+    background-color: #eee;
+    transform: scale(1.1) translate(8px);
+}
+
+.message-text {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    padding: 8px 10px;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: #eee;
+    transition: color 0.2s ease-in-out;
+}
+
+.message-container:hover .message-text {
+    color: #1b1a1a;
 }
 
 .hex-block {
