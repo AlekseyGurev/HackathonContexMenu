@@ -51,6 +51,10 @@ export class ShapeModule extends Module {
 
     #renderFigure(figure) {
         document.body.append(figure)
+
+        setTimeout(() => {
+            figure.remove()
+        }, 3000)
     }
 
     #removeFigure(figure) {

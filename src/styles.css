@@ -1,46 +1,165 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --index-size: calc(5vh + 5vw);
+  --index-font-size: calc(1vh + 1vw);
 }
 
 body {
-    font-size: 14px;
-    font-family: 'Roboto', sans-serif;
-    height: 100vh;
-    width: 100%;
-    padding: 2rem;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  width: 100%;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
 }
 
 .menu {
-    position: fixed;
-    z-index: 1000;
-    width: 150px;
-    background: #1b1a1a;
-    border-radius: 5px;
-    display: none;
-    list-style: none;
+  position: fixed;
+  z-index: 1000;
+  width: 220px;
+  background: #1b1a1a;
+  border-radius: 5px;
+  display: none;
+  list-style: none;
+  transition: all 0.3s ease;
 }
 
 .menu.open {
-    display: block;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  padding: 10px;
+  position: absolute;
+  gap: 5px;
+  min-width: 200px;
+  max-width: 100%;
 }
 
 .menu .menu-item {
-    padding: 8px 10px;
-    font-size: 1rem;
-    color: #eee;
-    cursor: pointer;
-    transition: background-color .2s ease-in;
-    border-radius: inherit;
+  padding: 8px 10px;
+  font-size: 1rem;
+  color: #eee;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+  border-radius: inherit;
+  border: 1px solid transparent;
+  border-bottom: 1px solid #fff;
 }
 
 .menu .menu-item:hover {
-    background: #343434;
+  background: #fff;
+  border: 1px solid #fff;
+  color: black;
 }
-  
+
+/* Timer and Count Click module */
+
+.container-count {
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+
+.container-timer {
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+
+.timer-value-block {
+  width: 200px;
+  min-height: 100px;
+  background: #ababab;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-timer__number {
+    outline: none;
+    height: 30px;
+    font-size: 20px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid gray;
+}
+
+.container-timer__btn {
+    margin-left: 20px;
+    padding: 4px;
+    background: #53ef62;
+    border: 1px solid #44924c;
+    border-radius: 3px;
+    color: black;
+}
+
+/* Message module */
+
+.message-container {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 250px;
+    min-height: 20px;
+    border-radius: 5px;
+    background-color: #1b1a1a;
+    cursor: default;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.message-container:hover {
+    outline: 1px solid #1b1a1a;
+    color: #1b1a1a;
+    background-color: #eee;
+    transform: scale(1.1) translate(8px);
+}
+
+.message-text {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    padding: 8px 10px;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: #eee;
+    transition: color 0.2s ease-in-out;
+}
+
+.message-container:hover .message-text {
+    color: #1b1a1a;
+}
+
+/* BackgroundColorChanger module*/
+
+.hex-block {
+  width: calc(var(--index-size) * 2.5);
+  height: calc(var(--index-size) * 1.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #222;
+}
+
+.hex-code-text {
+  color: white;
+  font-size: calc(var(--index-font-size) * 1.3);
+}
+
+/* HappyNewYear module */
+
 .modal {
     position: fixed;
     top: 0;
