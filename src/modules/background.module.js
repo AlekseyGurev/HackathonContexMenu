@@ -1,25 +1,21 @@
 import { Module } from '../core/module'
-import { BODY } from '../core/constants'
+import { BODY, DOC } from '../core/constants'
 import { random } from '../utils'
 
 export class BackgroundColor extends Module {
   #hexArray = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F']
 
   #hasOutPutHexCode = false
+  #hexTextHTML = DOC.createElement('p')
+  #hexBlock = DOC.createElement('div')
 
   #outputHEXcode(hexCode) {
-    const hexTextHTML = document.createElement('p')
-    hexTextHTML.className = 'hex-code-text'
-    hexTextHTML.textContent = `Цвет фона ${hexCode}`
+    this.#hexTextHTML.className = 'hex-code-text'
+    this.#hexTextHTML.textContent = `Цвет фона ${hexCode}`
 
-    const hexBlock = document.createElement('div')
-    hexBlock.className = 'hex-block'
-    hexBlock.append(hexTextHTML)
-    document.body.append(hexBlock)
-
-    setTimeout(() => {
-      hexBlock.remove()
-    }, 4000)
+    this.#hexBlock.className = 'hex-block'
+    this.#hexBlock.append(this.#hexTextHTML)
+    BODY.append(this.#hexBlock)
   }
 
   #generateHexCode() {
@@ -42,12 +38,16 @@ export class BackgroundColor extends Module {
       this.#outputHEXcode(hexResult)
       this.#hasOutPutHexCode = true
     } else {
-      const hexTextHTML = document.querySelector('.hex-code-text')
-      hexTextHTML.textContent = `Цвет фона ${hexResult}`
+      this.#hexTextHTML.textContent = `Цвет фона ${hexResult}`
     }
 
     setTimeout(() => {
       BODY.style.backgroundColor = '#fff'
+    }, 4000)
+
+    setTimeout(() => {
+      this.#hexBlock.remove()
+      this.#hasOutPutHexCode = false
     }, 4000)
 
     return BODY.style.backgroundColor = hexResult
