@@ -1,103 +1,108 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --index-size: calc(5vh + 5vw);
+  --index-font-size: calc(1vh + 1vw);
 }
 
 body {
-    font-size: 14px;
-    font-family: 'Roboto', sans-serif;
-    height: 100vh;
-    width: 100%;
-    padding: 2rem;
-    position: relative;
-    overflow: hidden;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  width: 100%;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
 }
 
 .menu {
-    position: fixed;
-    z-index: 1000;
-    width: 150px;
-    background: #1b1a1a;
-    border-radius: 5px;
-    display: none;
-    list-style: none;
-    transition: all .3s ease;
+  position: fixed;
+  z-index: 1000;
+  width: 150px;
+  background: #1b1a1a;
+  border-radius: 5px;
+  display: none;
+  list-style: none;
+  transition: all 0.3s ease;
 }
 
 .menu.open {
-    display: flex;
-    flex-direction: column;
-    color: white;
-    padding: 10px;
-    position: absolute;
-    gap: 5px;
-    min-width: 200px;
-    max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  padding: 10px;
+  position: absolute;
+  gap: 5px;
+  min-width: 200px;
+  max-width: 100%;
 }
 
 .menu .menu-item {
-    padding: 8px 10px;
-    font-size: 1rem;
-    color: #eee;
-    cursor: pointer;
-    transition: all .3s ease-in;
-    border-radius: inherit;
-    border: 1px solid transparent;
-    border-bottom: 1px solid #fff;
+  padding: 8px 10px;
+  font-size: 1rem;
+  color: #eee;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+  border-radius: inherit;
+  border: 1px solid transparent;
+  border-bottom: 1px solid #fff;
 }
 
 .menu .menu-item:hover {
-    background: #fff;
-    border: 1px solid #fff;
-    color: black;
+  background: #fff;
+  border: 1px solid #fff;
+  color: black;
 }
 
 .container-count {
-    max-width: 1000px;
-    margin: auto;
-    text-align: center;
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
 }
 
 .container-timer {
-    max-width: 1000px;
-    margin: auto;
-    text-align: center;
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
 }
 
 .timer-value-block {
-    width: 200px;
-    min-height: 100px;
-    background: #ababab;
-    position: fixed;
-    bottom: 50px;
-    right: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 200px;
+  min-height: 100px;
+  background: #ababab;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 input#number {
-    outline: none;
-    height: 30px;
-    font-size: 20px;
-    border-top: none;
-    border-right: none;
-    border-left: none;
-    border-bottom: 1px solid gray;
+  outline: none;
+  height: 30px;
+  font-size: 20px;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px solid gray;
 }
 
-input[type="submit"] {
-    margin-left: 20px;
-    padding: 4px;
-    background: #53ef62;
-    border: 1px solid #44924c;
-    border-radius: 3px;
-    background: #fff;
-    border: 1px solid #fff;
-    color: black;
+input[type='submit'] {
+  margin-left: 20px;
+  padding: 4px;
+  background: #53ef62;
+  border: 1px solid #44924c;
+  border-radius: 3px;
+  background: #fff;
+  border: 1px solid #fff;
+  color: black;
 }
 
 /* Message module */
@@ -137,4 +142,18 @@ input[type="submit"] {
 
 .message-container:hover .message-text {
     color: #1b1a1a;
+}
+
+.hex-block {
+  width: calc(var(--index-size) * 2.5);
+  height: calc(var(--index-size) * 1.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #222;
+}
+
+.hex-code-text {
+  color: white;
+  font-size: calc(var(--index-font-size) * 1.3);
 }
