@@ -23,13 +23,17 @@ export class backgroundColor extends Module {
   ]
 
   #outputHEXcode(hexCode) {
-    const hexText = document.createElement('p')
-    hexText.textContent = `Цвет фона ${hexCode}`
+    const hexTextHTML = document.createElement('p')
+    hexTextHTML.className = 'hex-code-text'
+    hexTextHTML.textContent = `Цвет фона ${hexCode}`
+
     const hexBlock = document.createElement('div')
     hexBlock.className = 'hex-block'
-    hexBlock.append(hexText)
-    BODY.append(hexBlock)
+    hexBlock.append(hexTextHTML)
+    document.body.append(hexBlock)
   }
+
+  #hasOutPutHexCode = false
 
   trigger(hexArray) {
     const result = []
@@ -43,6 +47,12 @@ export class backgroundColor extends Module {
 
     BODY.style.backgroundColor = hexResult
 
-    outputHEXcode(hexResult)
+    if (!hasOutPutHexCode) {
+      outputHEXcode(hexResult)
+      hasOutPutHexCode = true
+    } else {
+      const hexTextHTML = document.querySelector('.hex-code-text')
+      hexTextHTML.textContent = `Цвет фона ${hexResult}`
+    }
   }
 }

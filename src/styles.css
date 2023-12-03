@@ -116,6 +116,9 @@ input[type='submit'] {
   justify-content: center;
   align-items: center;
   background-color: #222;
+}
+
+.hex-code-text {
   color: white;
   font-size: calc(var(--index-font-size) * 1.3);
 }
