@@ -6,6 +6,7 @@ import { CounterModule } from './modules/counter.module.js'
 import { TimerModule } from './modules/timer.module.js'
 import { BackgroundColor } from './modules/background.module.js'
 import { MessageModule } from './modules/message.module.js'
+import { HappyNewYearModule } from './modules/happy-new-year.module.js'
 
 // сюда будем закидывать модули
 const modulesArray = []
@@ -15,8 +16,9 @@ const counterModule = new CounterModule('CounterModule', 'Аналитика к�
 const timerModule = new TimerModule('TimerModule', 'Таймер отсчета')
 const backgroundColor = new BackgroundColor('BackgroundColor', 'Случайный фон')
 const messageModule = new MessageModule('messageModule', 'Кастомное сообщение')
+const happyNewYearModule = new HappyNewYearModule('happyNewYearModule', 'Новогоднее настроение')
 
-modulesArray.push(shapeModule, counterModule, timerModule, backgroundColor, messageModule)
+modulesArray.push(shapeModule, counterModule, timerModule, backgroundColor, messageModule, happyNewYearModule)
 
 const menu = new ContextMenu('#menu')
 menu.add(shapeModule.toHTML())
@@ -24,6 +26,7 @@ menu.add(counterModule.toHTML())
 menu.add(timerModule.toHTML())
 menu.add(backgroundColor.toHTML())
 menu.add(messageModule.toHTML())
+menu.add(happyNewYearModule.toHTML())
 
 //снимаем действие по умолчанию и вызываем наше меню
 DOC.addEventListener('contextmenu', (event) => {
